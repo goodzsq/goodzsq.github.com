@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>开发工具链整合 | JavaScript游戏开发</title>
+        <title>数组 | JavaScript游戏开发</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.3.3">
@@ -25,10 +25,10 @@
         
     
     
-    <link rel="next" href="../appendix/index.html" />
+    <link rel="next" href="../js/json.html" />
     
     
-    <link rel="prev" href="../pattern/index.html" />
+    <link rel="prev" href="../js/object.html" />
     
 
         
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-basepath=".." data-revision="Tue Sep 15 2015 21:26:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="2.3" data-basepath=".." data-revision="Tue Sep 15 2015 21:26:44 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -148,7 +148,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="js/array.html">
+        <li class="chapter active" data-level="2.3" data-path="js/array.html">
             
                 
                     <a href="../js/array.html">
@@ -365,7 +365,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4" data-path="env/index.html">
+        <li class="chapter " data-level="4" data-path="env/index.html">
             
                 
                     <a href="../env/index.html">
@@ -1238,8 +1238,84 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%93%BE%E6%95%B4%E5%90%88">&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x94FE;&#x6574;&#x5408;</h1>
-<p>&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x3002;</p>
+                        <h1 id="%E6%95%B0%E7%BB%84-array">&#x6570;&#x7EC4;(Array)</h1>
+<ul>
+<li>&#x6570;&#x7EC4;&#x662F;&#x6709;&#x5E8F;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x610F;&#x7C7B;&#x578B;&#xFF0C;&#x7528;&#x6570;&#x7EC4;[&#x7D22;&#x5F15;]&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#x6570;&#x7EC4;&#x5143;&#x7D20;</li>
+<li>&#x6570;&#x7EC4;&#x662F;&#x52A8;&#x6001;&#x7684;&#xFF0C;&#x957F;&#x5EA6;&#x53EF;&#x6839;&#x636E;&#x9700;&#x8981;&#x589E;&#x957F;&#x6216;&#x8005;&#x7F29;&#x51CF;&#x3002;</li>
+<li>&#x6570;&#x7EC4;&#x53EF;&#x4EE5;&#x662F;&#x7A00;&#x758F;&#x7684;</li>
+<li>&#x6570;&#x7EC4;&#x6709;&#x4E00;&#x4E2A;length&#x957F;&#x5EA6;&#x5C5E;&#x6027;&#xFF0C;&#x6DFB;&#x52A0;&#x6216;&#x8005;&#x5220;&#x9664;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x4F1A;&#x81EA;&#x52A8;&#x66F4;&#x65B0;&#xFF0C;&#x8BBE;&#x7F6E;length&#x7684;&#x503C;&#x4F1A;&#x8C03;&#x6574;&#x6570;&#x7EC4;&#x5927;&#x5C0F;</li>
+<li>&#x6570;&#x7EC4;&#x662F;&#x5BF9;&#x8C61;&#x7684;&#x7279;&#x6B8A;&#x5F62;&#x5F0F;</li>
+<li>&#x6570;&#x7EC4;&#x7EE7;&#x627F;Array.prototype&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x5957;&#x6570;&#x7EC4;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x5BF9;&#x771F;&#x6B63;&#x7684;&#x6570;&#x7EC4;&#x548C;&#x7C7B;&#x6570;&#x7EC4;&#x90FD;&#x6709;&#x6548;</li>
+<li>&#x7C7B;&#x6570;&#x7EC4;&#x4E0D;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x662F;&#x5177;&#x6709;length&#x5C5E;&#x6027;&#x548C;&#x975E;&#x8D1F;&#x6574;&#x6570;&#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;&#x53EA;&#x8BFB;&#x7684;&#x6570;&#x7EC4;&#x501F;&#x7528;&#x6570;&#x7EC4;&#x7684;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#x3002;&#x4F8B;&#x5982;Arguments&#x5BF9;&#x8C61;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> a = []; <span class="hljs-comment">//&#x6570;&#x7EC4;&#x76F4;&#x63A5;&#x91CF; &#x7B49;&#x4EF7;&#x4E8E; a = new Array();</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">10</span>) ; <span class="hljs-comment">//[undefined &#xD7; 10] &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;10&#x7684;&#x6570;&#x7EC4;</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>); <span class="hljs-comment">//&#x7B49;&#x4EF7;&#x4E8E; a = [1,2,3]</span>
+a.length == <span class="hljs-number">3</span>; <span class="hljs-comment">//true &#x8BFB;&#x53D6;&#x6570;&#x7EC4;&#x957F;&#x5EA6;</span>
+a.length = <span class="hljs-number">0</span>; <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#x4E3A;0&#xFF0C;&#x6E05;&#x7A7A;&#x6570;&#x7EC4;&#x5143;&#x7D20;</span>
+a.length = <span class="hljs-number">5</span>; <span class="hljs-comment">//&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#x6269;&#x5145;&#x5230;5&#xFF0C;5&#x4E2A;&#x5143;&#x7D20;&#x90FD;&#x662F;undefined</span>
+a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+a[<span class="hljs-number">0</span>] ==<span class="hljs-number">1</span>; <span class="hljs-comment">//true &#x8BFB;&#x53D6;&#x7B2C;0&#x4E2A;&#x5143;&#x7D20;</span>
+a[<span class="hljs-number">0</span>] = <span class="hljs-number">123</span>; <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x7B2C;0&#x4E2A;&#x5143;&#x7D20;&#x4E3A;123</span>
+a.push(<span class="hljs-number">4</span>); <span class="hljs-comment">//&#x5411;&#x6570;&#x7EC4;&#x6700;&#x540E;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x5143;&#x7D20; &#x6570;&#x7EC4;&#x4E3A;[1,2,3,4]</span>
+a.pop(); <span class="hljs-comment">//4 &#x4ECE;&#x6570;&#x7EC4;&#x6700;&#x540E;&#x5F39;&#x51FA;&#x4E00;&#x4E2A;&#x5143;&#x7D20; &#x6570;&#x7EC4;&#x4E3A;[1,2,3]</span>
+a.unshift(<span class="hljs-string">&apos;first&apos;</span>); <span class="hljs-comment">//&#x6570;&#x7EC4;&#x4E3A;[&apos;first&apos;, 1, 2, 3]</span>
+a.shift(); <span class="hljs-comment">//&apos;first&apos; &#x6570;&#x7EC4;&#x4E3A;[1,2,3]</span>
+<span class="hljs-keyword">var</span> pos = <span class="hljs-number">1</span>;
+a.splice(pos, <span class="hljs-number">1</span>); <span class="hljs-comment">//&#x5220;&#x9664;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E;&#x5728;pos&#x4E0A;&#x7684;&#x6570;&#x7EC4;&#x5143;&#x7D20; [1,3]</span>
+a.splice(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-string">&apos;c&apos;</span>, <span class="hljs-string">&apos;d&apos;</span>); <span class="hljs-comment">//&#x6570;&#x7EC4;&#x63D2;&#x5165;&#x5143;&#x7D20; [1, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, 3]</span>
+<span class="hljs-comment">//&#x904D;&#x5386;&#x6570;&#x7EC4;</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>,max=a.length; i&lt;max; i++){
+  <span class="hljs-built_in">console</span>.log(i, a[i]);
+}
+<span class="hljs-comment">//ECMAScript5&#x6570;&#x7EC4;&#x904D;&#x5386;&#x65B9;&#x6CD5;</span>
+a.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>)</span>{
+  <span class="hljs-built_in">console</span>.log(x);
+});
+<span class="hljs-keyword">var</span> b = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],[<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]]; <span class="hljs-comment">//&#x521B;&#x5EFA;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;</span>
+b[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] == <span class="hljs-number">3</span>; <span class="hljs-comment">//true</span>
+<span class="hljs-keyword">var</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+a.join(); <span class="hljs-comment">//&quot;1,2,3&quot;</span>
+a.join(<span class="hljs-string">&quot; &quot;</span>); <span class="hljs-comment">//&quot;1 2 3&quot;</span>
+a.join(<span class="hljs-string">&apos;&apos;</span>); <span class="hljs-comment">//&quot;123&quot;</span>
+<span class="hljs-keyword">var</span> b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">5</span>);
+b.join(<span class="hljs-string">&apos;-&apos;</span>); <span class="hljs-comment">//&quot;-----&quot;</span>
+
+a.reverse(); <span class="hljs-comment">//&#x6570;&#x7EC4;&#x98A0;&#x5012;&#x987A;&#x5E8F; [3,2,1]</span>
+a.sort(); <span class="hljs-comment">//&#x6392;&#x5E8F; [1, 2, 3]</span>
+a.push(<span class="hljs-number">11</span>); <span class="hljs-comment">// [1, 2, 3, 11]</span>
+a.sort(); <span class="hljs-comment">// &#x9ED8;&#x8BA4;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x987A;&#x5E8F;&#x6392;&#x5E8F; [1, 11, 2, 3]</span>
+a.sort(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>)</span>{
+  <span class="hljs-keyword">return</span> a-b;
+}); <span class="hljs-comment">//&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x6392;&#x5E8F;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x6392;&#x5E8F; [1, 2, 3, 11]</span>
+a.sort(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>)</span>{
+  <span class="hljs-keyword">return</span> b-a;
+}); <span class="hljs-comment">//&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x6392;&#x5E8F;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x53CD;&#x5E8F;&#x6392;&#x5E8F; [1, 2, 3, 11]</span>
+
+<span class="hljs-comment">//&#x6570;&#x7EC4;&#x8FDE;&#x63A5;</span>
+<span class="hljs-keyword">var</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+a.concat(<span class="hljs-number">4</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">//&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x6570;&#x7EC4;[1,2,3,4,5] &#x53D8;&#x91CF;a&#x4ECD;&#x7136;&#x4E3A;[1,2,3]</span>
+a.concat([<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]); <span class="hljs-comment">//[1,2,3,4,5]</span>
+a.concat([<span class="hljs-number">4</span>,<span class="hljs-number">5</span>], [<span class="hljs-number">6</span>,<span class="hljs-number">7</span>]); <span class="hljs-comment">//[1,2,3,4,5,6,7]</span>
+a.concat(<span class="hljs-number">4</span>, [<span class="hljs-number">5</span>, [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>]]); <span class="hljs-comment">//[1,2,3,4,5,[6,7]]</span>
+
+<span class="hljs-comment">//&#x6570;&#x7EC4;&#x5207;&#x7247;</span>
+<span class="hljs-keyword">var</span> a = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
+a.slice(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>); <span class="hljs-comment">//[2,3] &#x53D8;&#x91CF;a&#x4ECD;&#x7136;&#x4E3A;[1,2,3,4,5]</span>
+a.slice(<span class="hljs-number">3</span>); <span class="hljs-comment">//[4, 5]</span>
+a.slice(<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>); <span class="hljs-comment">//[2,3,4]</span>
+a.slice(-<span class="hljs-number">3</span>, -<span class="hljs-number">2</span>); <span class="hljs-comment">//[3]</span>
+
+a.toString();<span class="hljs-comment">//&quot;1,2,3,4,5&quot;</span>
+
+<span class="hljs-comment">//&#x5224;&#x8BFB;&#x662F;&#x5426;&#x4E3A;&#x6570;&#x7EC4;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isArray</span>(<span class="hljs-params">o</span>)</span>{
+  <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Array</span>.isArray)
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Array</span>.isArray(o);<span class="hljs-comment">//ECMAScript5</span>
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.prototype.toString.call(o) === <span class="hljs-string">&quot;[object Array]&quot;</span>;
+}
+</code></pre>
 
                     
                     </section>
@@ -1250,10 +1326,10 @@
         </div>
 
         
-        <a href="../pattern/index.html" class="navigation navigation-prev " aria-label="Previous page: 设计范式"><i class="fa fa-angle-left"></i></a>
+        <a href="../js/object.html" class="navigation navigation-prev " aria-label="Previous page: 对象"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../appendix/index.html" class="navigation navigation-next " aria-label="Next page: 附录"><i class="fa fa-angle-right"></i></a>
+        <a href="../js/json.html" class="navigation navigation-next " aria-label="Next page: JSON数据格式"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

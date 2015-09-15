@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>开发工具链整合 | JavaScript游戏开发</title>
+        <title>对象 | JavaScript游戏开发</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.3.3">
@@ -25,10 +25,10 @@
         
     
     
-    <link rel="next" href="../appendix/index.html" />
+    <link rel="next" href="../js/array.html" />
     
     
-    <link rel="prev" href="../pattern/index.html" />
+    <link rel="prev" href="../js/datatype.html" />
     
 
         
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-basepath=".." data-revision="Tue Sep 15 2015 21:26:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="2.2" data-basepath=".." data-revision="Tue Sep 15 2015 21:26:44 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -133,7 +133,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="js/object.html">
+        <li class="chapter active" data-level="2.2" data-path="js/object.html">
             
                 
                     <a href="../js/object.html">
@@ -365,7 +365,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4" data-path="env/index.html">
+        <li class="chapter " data-level="4" data-path="env/index.html">
             
                 
                     <a href="../env/index.html">
@@ -1238,8 +1238,67 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%93%BE%E6%95%B4%E5%90%88">&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x94FE;&#x6574;&#x5408;</h1>
-<p>&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x3002;</p>
+                        <h1 id="%E5%AF%B9%E8%B1%A1-object">&#x5BF9;&#x8C61;(Object)</h1>
+<ul>
+<li>&#x5BF9;&#x8C61;&#x662F;JavaScript&#x7684;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;</li>
+<li>&#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x7EC4;&#x5C5E;&#x6027;&#x7684;&#x65E0;&#x5E8F;&#x96C6;&#x5408;&#xFF0C;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x90FD;&#x662F;&#x4E00;&#x4E2A;key/value&#x5BF9;</li>
+<li>&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+<li>&#x5176;&#x4ED6;&#x53EB;&#x6CD5;&#xFF1A;&#x6563;&#x5217;&#x8868;&#x3001;&#x5B57;&#x5178;&#x3001;&#x5173;&#x8054;&#x6570;&#x7EC4;&#x7B49;&#x3002;</li>
+<li>&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x4ECE;&#x4E00;&#x4E2A;&#x79F0;&#x4E3A;&#x539F;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x4E0A;&#x7EE7;&#x627F;&#x5C5E;&#x6027;&#x3002;&#x8FD9;&#x79CD;&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;&#x662F;JavaScript&#x7684;&#x6838;&#x5FC3;&#x7279;&#x6027;&#x3002;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">//&#x521B;&#x5EFA;&#x5BF9;&#x8C61;</span>
+<span class="hljs-keyword">var</span> a = {x:<span class="hljs-number">1</span>, y:<span class="hljs-number">2</span>}; <span class="hljs-comment">//&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x76F4;&#x63A5;&#x91CF;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;</span>
+<span class="hljs-keyword">var</span> b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>(); <span class="hljs-comment">//&#x901A;&#x8FC7;new&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x662F;&#x4E0D;&#x63A8;&#x8350;&#x7684;&#x3002;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Test</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">this</span>.a = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">this</span>.b = <span class="hljs-number">2</span>;
+}
+<span class="hljs-keyword">var</span> c = <span class="hljs-keyword">new</span> Test(); <span class="hljs-comment">//Test{a:1, b:2} &#x901A;&#x8FC7;new &#x6784;&#x9020;&#x51FD;&#x6570;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;</span>
+<span class="hljs-keyword">var</span> d = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+<span class="hljs-keyword">var</span> e = []; <span class="hljs-comment">//&#x6570;&#x7EC4;&#x76F4;&#x63A5;&#x91CF;</span>
+<span class="hljs-keyword">var</span> f = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>();
+<span class="hljs-keyword">var</span> g = <span class="hljs-regexp">/javascript/</span>; <span class="hljs-comment">//&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x76F4;&#x63A5;&#x91CF;</span>
+<span class="hljs-keyword">var</span> h = <span class="hljs-keyword">new</span> Regexp(<span class="hljs-string">&quot;javascript&quot;</span>); <span class="hljs-comment">//</span>
+
+<span class="hljs-comment">/**
+ * &#x901A;&#x8FC7;&#x539F;&#x578B;&#x7EE7;&#x627F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createObject</span>(<span class="hljs-params">p</span>)</span>{
+  <span class="hljs-keyword">if</span>(p == <span class="hljs-literal">null</span>) <span class="hljs-keyword">throw</span> <span class="hljs-built_in">TypeError</span>();
+  <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Object</span>.create) <span class="hljs-comment">//&#x4F7F;&#x7528;ECMAScript5&#x81EA;&#x5E26;&#x7684;&#x51FD;&#x6570;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.create(p);
+  <span class="hljs-keyword">var</span> t = <span class="hljs-keyword">typeof</span> p;
+  <span class="hljs-keyword">if</span>(t !== <span class="hljs-string">&apos;object&apos;</span> &amp;&amp; t != <span class="hljs-string">&apos;function&apos;</span>) <span class="hljs-keyword">throw</span> <span class="hljs-built_in">TypeError</span>();
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>)</span>{}; <span class="hljs-comment">//&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7A7A;&#x51FD;&#x6570;</span>
+  f.prototype = p;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> f();
+}
+</code></pre>
+<pre><code class="lang-javascript"><span class="hljs-comment">//&#x8BBF;&#x95EE;&#x5C5E;&#x6027;&#x503C;</span>
+<span class="hljs-keyword">var</span> p = {x:<span class="hljs-number">1</span>, y:<span class="hljs-number">2</span>}; <span class="hljs-comment">//&#x521B;&#x5EFA;&#x5BF9;&#x8C61;</span>
+p.x; <span class="hljs-comment">//1 &#x901A;&#x8FC7;&quot;.&#x5C5E;&#x6027;&#x540D;&quot;&#x8BBF;&#x95EE;&#x5C5E;&#x6027;&#x503C;</span>
+p.x = <span class="hljs-number">2</span>; <span class="hljs-comment">//&#x5C5E;&#x6027;&#x8D4B;&#x503C;</span>
+p.z = <span class="hljs-number">0</span>; <span class="hljs-comment">//&#x521B;&#x5EFA;&#x65B0;&#x5C5E;&#x6027;</span>
+p[<span class="hljs-string">&quot;x&quot;</span>] <span class="hljs-comment">//2 &#x901A;&#x8FC7;[&apos;&#x5C5E;&#x6027;&#x540D;&apos;]&#x8BBF;&#x95EE;&#x5C5E;&#x6027;&#x503C;</span>
+p[<span class="hljs-string">&quot;hello world&quot;</span>] = <span class="hljs-number">12345</span>; <span class="hljs-comment">//&#x4E0D;&#x7B26;&#x5408;&#x53D8;&#x91CF;&#x547D;&#x540D;&#x89C4;&#x5219;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x53EA;&#x80FD;&#x4EE5;[&quot;&#x5C5E;&#x6027;&#x540D;&quot;]&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#x3002;</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-string">&quot;hello world&quot;</span>;
+p[a] <span class="hljs-comment">//12345 &#x4EE5;[]&#x8FDB;&#x884C;&#x5C5E;&#x6027;&#x8BBF;&#x95EE;&#x65F6;&#x5C5E;&#x6027;&#x540D;&#x53EF;&#x4EE5;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x8FBE;&#x5F0F;</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> p){ <span class="hljs-comment">//&#x7528;for in &#x8FDB;&#x884C;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x904D;&#x5386;</span>
+  <span class="hljs-built_in">console</span>.log(key, p[key]);
+}
+p.id <span class="hljs-comment">//undefined &#x67E5;&#x8BE2;&#x5BF9;&#x8C61;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5C5E;&#x6027;&#x4E0D;&#x4F1A;&#x51FA;&#x9519;&#xFF0C;&#x800C;&#x662F;&#x8FD4;&#x56DE;undefined</span>
+p.id.a <span class="hljs-comment">//&#x51FA;&#x9519; &#x8BD5;&#x56FE;&#x8BBF;&#x95EE;undefined&#x548C;null&#x7684;&#x5C5E;&#x6027;&#x65F6;&#x7A0B;&#x5E8F;&#x4F1A;&#x51FA;&#x9519;&#x3002;&#x8FD9;&#x4E2A;&#x4E00;&#x4E2A;&#x5E38;&#x89C1;&#x7684;&#x9519;&#x8BEF;&#x3002;</span>
+<span class="hljs-keyword">delete</span> p[<span class="hljs-string">&quot;hello world&quot;</span>]; <span class="hljs-comment">//&#x5220;&#x9664;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;</span>
+<span class="hljs-string">&quot;x&quot;</span> <span class="hljs-keyword">in</span> p <span class="hljs-comment">//true &#x68C0;&#x67E5;&#x5C5E;&#x6027;&#x662F;&#x5426;&#x5B58;&#x5728;</span>
+<span class="hljs-string">&quot;hello world&quot;</span> <span class="hljs-keyword">in</span> p <span class="hljs-comment">//false &#x5C5E;&#x6027;&#x5DF2;&#x88AB;&#x5220;&#x9664;</span>
+p.hasOwnProperty(<span class="hljs-string">&quot;toString&quot;</span>) <span class="hljs-comment">//false &#x68C0;&#x67E5;&#x5C5E;&#x6027;&#x540D;&#x662F;&#x5426;&#x4E3A;&#x81EA;&#x6709;&#x5C5E;&#x6027;</span>
+p.hasOwnProperty(<span class="hljs-string">&quot;x&quot;</span>) <span class="hljs-comment">//true &quot;x&quot;&#x4E3A;&#x81EA;&#x6709;&#x5C5E;&#x6027;</span>
+<span class="hljs-comment">//ECMAScript 5&#x4E2D;&#x5BF9;&#x5C5E;&#x6027;getter&#x548C;setter&#x7684;&#x5B9E;&#x73B0;</span>
+<span class="hljs-keyword">var</span> o = {
+  get prop1(){<span class="hljs-comment">/*&#x51FD;&#x6570;&#x4F53;*/</span>}
+  set prop1(newvalue){<span class="hljs-comment">/*&#x51FD;&#x6570;&#x4F53;*/</span>}
+}
+</code></pre>
 
                     
                     </section>
@@ -1250,10 +1309,10 @@
         </div>
 
         
-        <a href="../pattern/index.html" class="navigation navigation-prev " aria-label="Previous page: 设计范式"><i class="fa fa-angle-left"></i></a>
+        <a href="../js/datatype.html" class="navigation navigation-prev " aria-label="Previous page: 简单数据类型"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../appendix/index.html" class="navigation navigation-next " aria-label="Next page: 附录"><i class="fa fa-angle-right"></i></a>
+        <a href="../js/array.html" class="navigation navigation-next " aria-label="Next page: 数组"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

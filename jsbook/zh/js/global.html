@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>开发工具链整合 | JavaScript游戏开发</title>
+        <title>内置类型与全局函数 | JavaScript游戏开发</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.3.3">
@@ -25,10 +25,10 @@
         
     
     
-    <link rel="next" href="../appendix/index.html" />
+    <link rel="next" href="../js/strict.html" />
     
     
-    <link rel="prev" href="../pattern/index.html" />
+    <link rel="prev" href="../js/json.html" />
     
 
         
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-basepath=".." data-revision="Tue Sep 15 2015 21:26:44 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="2.5" data-basepath=".." data-revision="Tue Sep 15 2015 21:26:44 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -178,7 +178,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.5" data-path="js/global.html">
+        <li class="chapter active" data-level="2.5" data-path="js/global.html">
             
                 
                     <a href="../js/global.html">
@@ -365,7 +365,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4" data-path="env/index.html">
+        <li class="chapter " data-level="4" data-path="env/index.html">
             
                 
                     <a href="../env/index.html">
@@ -1238,8 +1238,19 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%93%BE%E6%95%B4%E5%90%88">&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x94FE;&#x6574;&#x5408;</h1>
-<p>&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x3002;</p>
+                        <h1 id="%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%85%A8%E5%B1%80%E5%87%BD%E6%95%B0">&#x5185;&#x7F6E;&#x7C7B;&#x578B;&#x4E0E;&#x5168;&#x5C40;&#x51FD;&#x6570;</h1>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> foo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{} <span class="hljs-comment">//&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;</span>
+<span class="hljs-keyword">typeof</span> foo === <span class="hljs-string">&apos;function&apos;</span> <span class="hljs-comment">//true</span>
+foo <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span> <span class="hljs-comment">//true</span>
+
+<span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/^abc/</span> <span class="hljs-comment">//&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</span>
+<span class="hljs-keyword">typeof</span> reg === <span class="hljs-string">&apos;object&apos;</span> <span class="hljs-comment">//true</span>
+reg <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">RegExp</span> <span class="hljs-comment">//true</span>
+
+<span class="hljs-keyword">var</span> date = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>() <span class="hljs-comment">//&#x65E5;&#x671F;&#x65F6;&#x95F4;&#x5BF9;&#x8C61;</span>
+<span class="hljs-keyword">typeof</span> date === <span class="hljs-string">&apos;object&apos;</span>
+date <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Date</span>
+</code></pre>
 
                     
                     </section>
@@ -1250,10 +1261,10 @@
         </div>
 
         
-        <a href="../pattern/index.html" class="navigation navigation-prev " aria-label="Previous page: 设计范式"><i class="fa fa-angle-left"></i></a>
+        <a href="../js/json.html" class="navigation navigation-prev " aria-label="Previous page: JSON数据格式"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../appendix/index.html" class="navigation navigation-next " aria-label="Next page: 附录"><i class="fa fa-angle-right"></i></a>
+        <a href="../js/strict.html" class="navigation navigation-next " aria-label="Next page: 严格模式(strict mode)"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
