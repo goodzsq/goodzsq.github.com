@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="2.10" data-basepath=".." data-revision="Tue Sep 15 2015 22:02:37 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="2.10" data-basepath=".." data-revision="Wed Sep 16 2015 20:28:35 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -1240,13 +1240,193 @@
                     
                         <h1 id="es6">ES6</h1>
 <p>&#x7CBE;&#x7B80;&#x4E00;&#x90E8;&#x5206;&#x5E38;&#x7528;&#x7684;ES6&#x8BED;&#x6CD5;</p>
-<h2 id="%E5%9D%97%E7%BA%A7let%E5%92%8Cconst">&#x5757;&#x7EA7;let&#x548C;const</h2>
+<h2 id="%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E">&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x53D8;&#x91CF;&#x58F0;&#x660E;</h2>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params"></span>)</span>{
+<span class="hljs-pi">    &quot;use strict&quot;</span>
+    <span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>,
+      y = <span class="hljs-number">1</span>,
+      z = <span class="hljs-number">1</span>;
+    {
+        <span class="hljs-keyword">var</span> x = <span class="hljs-number">2</span>;<span class="hljs-comment">//&#x51FD;&#x6570;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x53D8;&#x91CF;&#x58F0;&#x660E;&#x63D0;&#x524D;</span>
+        <span class="hljs-keyword">let</span> y = <span class="hljs-number">2</span>;<span class="hljs-comment">//&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;</span>
+        <span class="hljs-keyword">const</span> z = <span class="hljs-number">2</span>;<span class="hljs-comment">//&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;</span>
+        <span class="hljs-built_in">console</span>.log(x, y, z); <span class="hljs-comment">//=&gt; 2 2 2</span>
+    }
+    <span class="hljs-built_in">console</span>.log(x, y, z); <span class="hljs-comment">//=&gt; 2 1 1</span>
+}
+test();
+<span class="hljs-comment">//&#x7ECF;&#x8FC7;babel&#x628A;es6&#x8F6C;&#x7801;&#x6210;es5&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params"></span>) </span>{
+<span class="hljs-pi">  &quot;use strict&quot;</span>;
+  <span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>,
+      y = <span class="hljs-number">1</span>,
+      z = <span class="hljs-number">1</span>;
+  {
+    <span class="hljs-keyword">var</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">//&#x51FD;&#x6570;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x53D8;&#x91CF;&#x58F0;&#x660E;&#x63D0;&#x524D;</span>
+    <span class="hljs-keyword">var</span> _y = <span class="hljs-number">2</span>; <span class="hljs-comment">//&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;</span>
+    <span class="hljs-keyword">var</span> _z = <span class="hljs-number">2</span>; <span class="hljs-comment">//&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;</span>
+    <span class="hljs-built_in">console</span>.log(x, _y, _z); <span class="hljs-comment">//=&gt; 2 2 2</span>
+  }
+  <span class="hljs-built_in">console</span>.log(x, y, z); <span class="hljs-comment">//=&gt; 2 1 1</span>
+}
+test();
+</code></pre>
+<h2 id="%E5%B8%B8%E9%87%8F">&#x5E38;&#x91CF;</h2>
+<p>&#x7981;&#x6B62;&#x7ED9;&#x5E38;&#x91CF;&#x8D4B;&#x503C;&#xFF0C;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;nodejs&#x62A5;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#xFF0C;babel&#x8F6C;&#x7801;&#x5931;&#x8D25;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> x = <span class="hljs-number">123</span>;
+x = <span class="hljs-number">456</span>;<span class="hljs-comment">//&#x8BED;&#x6CD5;&#x9519;&#x8BEF;</span>
+</code></pre>
 <h2 id="%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84">&#x53D8;&#x91CF;&#x7684;&#x89E3;&#x6784;</h2>
-<h2 id="%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%89%A9%E5%B1%95">&#x5B57;&#x7B26;&#x4E32;&#x6269;&#x5C55;</h2>
-<h2 id="%E5%AF%B9%E8%B1%A1%E6%89%A9%E5%B1%95">&#x5BF9;&#x8C61;&#x6269;&#x5C55;</h2>
+<p>ES6&#x5141;&#x8BB8;&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x6A21;&#x5F0F;&#xFF0C;&#x4ECE;&#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;&#x4E2D;&#x63D0;&#x53D6;&#x503C;&#xFF0C;&#x5BF9;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#xFF0C;&#x8FD9;&#x88AB;&#x79F0;&#x4E3A;&#x89E3;&#x6784;&#xFF08;Destructuring&#xFF09;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-pi">&quot;use strict&quot;</span>
+<span class="hljs-comment">//&#x4ECE;&#x5BF9;&#x8C61;&#x4E2D;&#x89E3;&#x6784;&#x51FA;x,y&#x5C5E;&#x6027;&#x5230;&#x53D8;&#x91CF;</span>
+<span class="hljs-keyword">var</span> {x, y} = {a:<span class="hljs-number">0</span>, x:<span class="hljs-number">1</span>, y:<span class="hljs-number">2</span>};
+<span class="hljs-built_in">console</span>.log(x, y); <span class="hljs-comment">//=&gt; 1 2</span>
+
+<span class="hljs-comment">//&#x89E3;&#x6784;&#x51FA;&#x524D;3&#x4E2A;&#x5143;&#x7D20;&#x5230;&#x53D8;&#x91CF;</span>
+<span class="hljs-keyword">var</span> [a, b, c] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+<span class="hljs-built_in">console</span>.log(a, b, c);<span class="hljs-comment">//=&gt; 1 2 3</span>
+
+<span class="hljs-comment">//&#x4ECE;&#x6570;&#x7EC4;&#x4E2D;&#x5FFD;&#x7565;&#x4E00;&#x4E2A;</span>
+<span class="hljs-keyword">var</span> [x, ,y] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-built_in">console</span>.log(x, y); <span class="hljs-comment">//=&gt;1 3</span>
+
+<span class="hljs-comment">//&#x89E3;&#x6784;&#x51FA;x,y&#x5C5E;&#x6027;&#x5230;&#x53D8;&#x91CF;&#xFF0C;&#x5269;&#x4E0B;&#x7684;&#x5C5E;&#x6027;&#x653E;&#x5230;other&#x4E2D;</span>
+<span class="hljs-keyword">var</span> {x, y, ...other} = {x:<span class="hljs-number">100</span>, y:<span class="hljs-number">200</span>, a:<span class="hljs-number">1</span>, b:<span class="hljs-number">2</span>, c:<span class="hljs-number">3</span>};
+<span class="hljs-built_in">console</span>.log(x, y, other); <span class="hljs-comment">//=&gt; 100 200 {a: 1, b: 2, c: 3}</span>
+
+<span class="hljs-comment">//&#x89E3;&#x6784;&#x5931;&#x8D25;&#x7684;&#x53D8;&#x91CF;&#x4E3A;undefined</span>
+<span class="hljs-keyword">var</span> [foo] = [];
+<span class="hljs-built_in">console</span>.log(foo); <span class="hljs-comment">//=&gt;undefined</span>
+<span class="hljs-keyword">var</span> [one, two] = [<span class="hljs-number">1</span>];
+<span class="hljs-built_in">console</span>.log(one, two); <span class="hljs-comment">//=&gt; 1 undefined</span>
+
+<span class="hljs-comment">//&#x9ED8;&#x8BA4;&#x503C;</span>
+<span class="hljs-keyword">var</span> [one, two=<span class="hljs-number">2</span>] = [<span class="hljs-number">1</span>];
+<span class="hljs-built_in">console</span>.log(one, two); <span class="hljs-comment">//=&gt; 1 2</span>
+
+<span class="hljs-comment">//&#x4EA4;&#x6362;&#x53D8;&#x91CF;</span>
+<span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>, y = <span class="hljs-number">2</span>;
+[x, y] = [y, x];
+<span class="hljs-built_in">console</span>.log(x, y); <span class="hljs-comment">//=&gt; 2 1</span>
+
+<span class="hljs-comment">//&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x89E3;&#x6784;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test1</span>(<span class="hljs-params">[x, y]</span>)</span>{
+    <span class="hljs-keyword">return</span> x + y;
+}
+<span class="hljs-keyword">var</span> sum = test1([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]);
+<span class="hljs-built_in">console</span>.log(sum) <span class="hljs-comment">//=&gt; 3</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test2</span>(<span class="hljs-params">{x,y=2,...other}</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">//=&gt;100</span>
+    <span class="hljs-built_in">console</span>.log(y); <span class="hljs-comment">//=&gt;2</span>
+    <span class="hljs-built_in">console</span>.log(other); <span class="hljs-comment">//=&gt; {z:300}</span>
+}
+test2({x:<span class="hljs-number">100</span>,z:<span class="hljs-number">300</span>});
+
+<span class="hljs-comment">//&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x591A;&#x4E2A;&#x503C;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>];
+}
+<span class="hljs-keyword">var</span> [x, y] = test();
+<span class="hljs-built_in">console</span>.log(x, y); <span class="hljs-comment">//=&gt; 1, 2</span>
+</code></pre>
+<h2 id="%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E6%9D%BF">&#x5B57;&#x7B26;&#x4E32;&#x6A21;&#x677F;</h2>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;</span>
+<span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>, y =<span class="hljs-number">2</span>;
+<span class="hljs-keyword">var</span> str = <span class="hljs-string">`x:<span class="hljs-subst">${x}</span>, y:<span class="hljs-subst">${y}</span>`</span>;<span class="hljs-comment">//&#x53D8;&#x91CF;&#x5D4C;&#x5165;</span>
+<span class="hljs-built_in">console</span>.log(str); <span class="hljs-comment">//=&gt; &quot;x:1, y:2&quot;</span>
+
+<span class="hljs-comment">//&#x591A;&#x884C;&#x6587;&#x672C;</span>
+<span class="hljs-keyword">var</span> str = <span class="hljs-string">`hello <span class="hljs-subst">${x}</span>
+world <span class="hljs-subst">${y}</span>`</span>;
+<span class="hljs-built_in">console</span>.log(str) <span class="hljs-comment">//=&gt;hello 1\nworld 2</span>
+
+<span class="hljs-comment">//&#x5D4C;&#x5165;&#x8868;&#x8FBE;&#x5F0F;</span>
+<span class="hljs-keyword">var</span> str = <span class="hljs-string">`<span class="hljs-subst">${x}</span> + <span class="hljs-subst">${y}</span> = <span class="hljs-subst">${x+y}</span>`</span>;
+<span class="hljs-built_in">console</span>.log(str) <span class="hljs-comment">//=&gt; &quot;1 + 2 = 3&quot;</span>
+</code></pre>
+<h2 id="%E5%AF%B9%E8%B1%A1%E5%AD%97%E9%9D%A2%E9%87%8F%E7%9A%84%E6%89%A9%E5%B1%95">&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x7684;&#x6269;&#x5C55;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>, y = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">var</span> obj = {x, y}; <span class="hljs-comment">//&#x5BF9;&#x8C61;&#x7684;&#x7B80;&#x4ECB;&#x8868;&#x793A;&#x6CD5;&#x7B49;&#x4EF7;&#x4E8E;var obj = {x:x, y:y}</span>
+<span class="hljs-built_in">console</span>.log(obj); <span class="hljs-comment">//{x:1, y:2}</span>
+<span class="hljs-keyword">var</span> obj = {
+    x,
+    y,
+    foo(){}
+};
+<span class="hljs-built_in">console</span>.log(obj); <span class="hljs-comment">//{x:1, y:2, foo:function(){}}</span>
+<span class="hljs-comment">//&#x5B57;&#x9762;&#x91CF;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x7528;&#x8868;&#x8FBE;&#x5F0F;&#x4F5C;&#x4E3A;&#x5C5E;&#x6027;&#x540D;</span>
+<span class="hljs-keyword">var</span> obj = {
+    [<span class="hljs-string">&apos;x&apos;</span> + <span class="hljs-string">&apos;y&apos;</span>]: <span class="hljs-number">3</span>
+};
+<span class="hljs-built_in">console</span>.log(obj); <span class="hljs-comment">//{xy: 3}</span>
+</code></pre>
 <h2 id="%E7%B1%BB-class">&#x7C7B;(Class)</h2>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x7C7B;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span> </span>{
+    constructor(x, y){
+        <span class="hljs-keyword">this</span>.x = x;
+        <span class="hljs-keyword">this</span>.y = y;
+    }
+    toString(){
+        <span class="hljs-keyword">return</span> <span class="hljs-string">`(<span class="hljs-subst">${this.x}</span>,<span class="hljs-subst">${this.y}</span>)`</span>;
+    }
+}
+<span class="hljs-comment">//&#x7EE7;&#x627F;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Point</span> </span>{
+  constructor(x, y, r){
+    <span class="hljs-keyword">super</span>(x, y);
+    <span class="hljs-keyword">this</span>.r = r;
+  }
+  hitTest(p){<span class="hljs-comment">//&#x5224;&#x65AD;&#x70B9;&#x662F;&#x5426;&#x5728;&#x5706;&#x5F62;&#x5185;&#x90E8;</span>
+      <span class="hljs-keyword">var</span> dx = <span class="hljs-keyword">this</span>.x - p.x;
+      <span class="hljs-keyword">var</span> dy = <span class="hljs-keyword">this</span>.y - p.y;
+    <span class="hljs-keyword">var</span> distance = <span class="hljs-built_in">Math</span>.sqrt(dx*dx + dy*dy);
+    <span class="hljs-keyword">return</span> distance &lt;= <span class="hljs-keyword">this</span>.r;
+  }
+}
+<span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> Point(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);
+<span class="hljs-keyword">var</span> c = <span class="hljs-keyword">new</span> Circle(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);
+<span class="hljs-built_in">console</span>.log(p.toString()); <span class="hljs-comment">//=&gt;(0,0)</span>
+<span class="hljs-built_in">console</span>.log(c.hitTest(p)); <span class="hljs-comment">//=&gt;true</span>
+</code></pre>
 <h2 id="%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95">&#x51FD;&#x6570;&#x6269;&#x5C55;</h2>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x51FD;&#x6570;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;nodejs4.0&#x5C1A;&#x672A;&#x652F;&#x6301;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params">x, y = &apos;world&apos;</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(x + <span class="hljs-string">&apos; &apos;</span> + y);
+}
+test(<span class="hljs-string">&apos;hello&apos;</span>); <span class="hljs-comment">//=&gt; &apos;hello world&apos;</span>
+test(<span class="hljs-string">&apos;hello&apos;</span>, <span class="hljs-string">&apos;es6&apos;</span>); <span class="hljs-comment">//=&gt; &apos;hello es6&apos;</span>
+
+<span class="hljs-comment">//&#x591A;&#x4F59;&#x53C2;&#x6570;&#xFF0C;nodejs4.0&#x5C1A;&#x672A;&#x652F;&#x6301;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params">x, y, ...other</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">//=&gt;1</span>
+    <span class="hljs-built_in">console</span>.log(y); <span class="hljs-comment">//=&gt;2</span>
+    <span class="hljs-built_in">console</span>.log(other); <span class="hljs-comment">//=&gt; [3, 4, 5]</span>
+}
+test(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>);
+
+<span class="hljs-comment">//&#x6269;&#x5C55;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;nodejs4.0&#x5C1A;&#x672A;&#x652F;&#x6301;</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>, ...[<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], <span class="hljs-number">5</span>); <span class="hljs-comment">//&#x7B49;&#x4EF7;&#x4E8E;console.log(1,2,3,4,5)</span>
+</code></pre>
+<h2 id="%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0">&#x7BAD;&#x5934;&#x51FD;&#x6570;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> sqrt = x =&gt; x*x;
+<span class="hljs-built_in">console</span>.log(sqrt(<span class="hljs-number">3</span>)); <span class="hljs-comment">//=&gt;9</span>
+<span class="hljs-keyword">var</span> add = (x, y) =&gt; x+y;
+<span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)); <span class="hljs-comment">//=&gt;3</span>
+<span class="hljs-keyword">var</span> random = () =&gt; <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">100</span> + <span class="hljs-number">1</span>);
+<span class="hljs-built_in">console</span>.log(random()); <span class="hljs-comment">//&#x8FD4;&#x56DE;1-100&#x7684;&#x968F;&#x673A;&#x6574;&#x6570;</span>
+<span class="hljs-keyword">var</span> foo = () =&gt; {
+    <span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">var</span> y = <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">return</span> {x, y}
+};<span class="hljs-comment">//&#x51FD;&#x6570;&#x5185;&#x6709;&#x591A;&#x884C;&#x8BED;&#x53E5;&#x7528;&#x5927;&#x62EC;&#x53F7;&#x62EC;&#x8D77;&#x6765;</span>
+</code></pre>
 <h2 id="%E5%87%BD%E6%95%B0%E7%94%9F%E6%88%90%E5%99%A8generator">&#x51FD;&#x6570;&#x751F;&#x6210;&#x5668;Generator</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> g = <span class="hljs-function"><span class="hljs-keyword">function</span>*(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">yield</span> <span class="hljs-string">&apos;hello&apos;</span>;
+}
+</code></pre>
 
                     
                     </section>

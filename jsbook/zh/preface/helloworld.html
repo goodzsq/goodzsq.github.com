@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="Tue Sep 15 2015 22:02:37 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="1.1" data-basepath=".." data-revision="Wed Sep 16 2015 20:28:35 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -1239,7 +1239,114 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="%E5%87%86%E5%A4%87">&#x51C6;&#x5907;</h1>
-<h2 id="chrome">Chrome</h2>
+<h2 id="hello-world">Hello World</h2>
+<p>&#x5F00;&#x53D1;&#x8005;&#x5DE5;&#x5177;</p>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello world&apos;</span>);
+</code></pre>
+<h2 id="%E8%BF%87%E7%A8%8B%E5%BC%8F%E7%BC%96%E7%A8%8B">&#x8FC7;&#x7A0B;&#x5F0F;&#x7F16;&#x7A0B;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> listener = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">eventName, data</span>) </span>{}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">emit</span>(<span class="hljs-params">eventName, data</span>) </span>{
+  listener(eventName, data);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">attack</span>(<span class="hljs-params">a, b</span>) </span>{
+  <span class="hljs-keyword">var</span> hurt = a.atk - b.def;
+  <span class="hljs-keyword">if</span> (hurt &lt;= <span class="hljs-number">0</span>) {
+    hurt = <span class="hljs-number">1</span>;
+  }
+  <span class="hljs-keyword">return</span> hurt;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fight</span>(<span class="hljs-params">hero, enemy</span>) </span>{
+  <span class="hljs-keyword">var</span> maxRound = <span class="hljs-number">30</span>;
+  <span class="hljs-keyword">var</span> round = <span class="hljs-number">0</span>
+  <span class="hljs-keyword">var</span> hurt;
+  <span class="hljs-keyword">var</span> eventData;
+  emit(<span class="hljs-string">&apos;start&apos;</span>);
+  <span class="hljs-keyword">while</span> (round &lt; maxRound) {
+    round = round + <span class="hljs-number">1</span>;
+    emit(<span class="hljs-string">&apos;round&apos;</span>, round);
+
+    hurt = attack(hero, enemy);
+    enemy.hp -= hurt;
+    eventData = {
+      sender: hero.name,
+      target: enemy.name,
+      hurt: hurt
+    };
+    emit(<span class="hljs-string">&apos;attack&apos;</span>, eventData);
+    <span class="hljs-keyword">if</span>(enemy.hp &lt;= <span class="hljs-number">0</span>){
+      emit(<span class="hljs-string">&apos;end&apos;</span>, hero.name, enemy.name, <span class="hljs-string">&apos;&#x8D1F;&apos;</span>);
+      <span class="hljs-keyword">return</span>;
+    }
+
+    hurt = attack(enemy, hero);
+    hero.hp -= hurt;
+    eventData = {
+      sender: enemy.name,
+      target: hero.name,
+      hurt: hurt
+    };
+    emit(<span class="hljs-string">&apos;attack&apos;</span>, eventData);
+    <span class="hljs-keyword">if</span>(hero.hp &lt;= <span class="hljs-number">0</span>){
+      emit(<span class="hljs-string">&apos;end&apos;</span>, hero.name, enemy.name, <span class="hljs-string">&apos;&#x80DC;&apos;</span>);
+      <span class="hljs-keyword">return</span>;
+    }
+  }
+  emit(<span class="hljs-string">&apos;end&apos;</span>, hero, enemy, <span class="hljs-string">&apos;&#x5E73;&apos;</span>);
+}
+</code></pre>
+<h2 id="%E6%95%B0%E6%8D%AE">&#x6570;&#x636E;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> hero = {
+  name: <span class="hljs-string">&apos;aaa&apos;</span>,
+  hp: <span class="hljs-number">100</span>,
+  atk: <span class="hljs-number">20</span>,
+  def: <span class="hljs-number">5</span>
+};
+<span class="hljs-keyword">var</span> enemy = {
+  name: <span class="hljs-string">&apos;bbb&apos;</span>,
+  hp: <span class="hljs-number">100</span>,
+  atk: <span class="hljs-number">10</span>,
+  def: <span class="hljs-number">5</span>
+};
+</code></pre>
+<h2 id="%E8%BF%90%E8%A1%8C">&#x8FD0;&#x884C;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> listener = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">eventName, data</span>)</span>{
+  <span class="hljs-built_in">console</span>.log(eventName, data);
+};
+fight(hero, enemy);
+</code></pre>
+<h2 id="%E9%A9%B1%E5%8A%A8%E5%9B%BE%E5%BD%A2">&#x9A71;&#x52A8;&#x56FE;&#x5F62;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> events = [];
+<span class="hljs-keyword">var</span> times = {
+    start: <span class="hljs-number">1000</span>,
+    round: <span class="hljs-number">1000</span>,
+    attack: <span class="hljs-number">500</span>,
+    end: <span class="hljs-number">1000</span>
+};
+<span class="hljs-keyword">var</span> listener = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">eventName, data</span>) </span>{
+    events.push({
+        eventName: eventName,
+        data: data,
+        duration: times[eventName]
+    });
+    <span class="hljs-keyword">if</span>(eventName === <span class="hljs-string">&apos;end&apos;</span>){
+        playNext();
+    }
+}
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span>(<span class="hljs-params">eventName, data</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(eventName, data);
+    playNext();
+}
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">playNext</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">var</span> e = events.shift();
+    <span class="hljs-keyword">if</span>(e){
+        setTimeout(render, e.duration, e.eventName, e.data);
+    }
+}
+fight(hero, enemy);
+</code></pre>
 
                     
                     </section>
